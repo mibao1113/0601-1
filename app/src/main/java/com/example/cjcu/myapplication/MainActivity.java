@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    String[] fruit = {"Apple","Pineapple","Banana","Kiwi","A","B","C","D","E","F","GGG","HHH","IIII"};
+    String[] fruit = {"Apple","Pineapple","Banana","Kiwi","A","B","C","D","E","F","GGG","HHH","II"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
