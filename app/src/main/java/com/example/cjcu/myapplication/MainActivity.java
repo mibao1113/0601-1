@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,16 +18,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ListView list = (ListView) findViewById(R.id.list);
+        //final ListView list = (ListView) findViewById(R.id.list);
+        final Spinner spinner = (Spinner)findViewById(R.id.spinner5);
+
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,fruit);
-        list.setAdapter(adapter);
+        ArrayAdapter adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,fruit);
+        ArrayAdapter adapter3 = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,fruit);
+        ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this, R.array.fruit, R.layout.support_simple_spinner_dropdown_item);
+        //list.setAdapter(adapter);
+        spinner.setAdapter(adapter1);
+        //list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+         //    @Override
+          //    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+         //        Toast.makeText(MainActivity.this,list.getItemAtPosition(position).toString() , Toast.LENGTH_SHORT).show();
+          //    }
+           //});
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this,list.getItemAtPosition(position).toString() , Toast.LENGTH_SHORT).show();
-            }
-        });
+       spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+               Toast.makeText(MainActivity.this, spinner.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
 
+           }
+
+
+
+
+               public void onNothingSelected(AdapterView<?> parent) {
+
+               }
+           });
+
+
+       }
     }
-}
